@@ -1,0 +1,14 @@
+{
+  "name": "DevOpsCW2",
+  "description": "This is my devops coursework...",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "docker.io": "*",
+    "redis": "*",
+    "restify": "*"
+  }
+}
