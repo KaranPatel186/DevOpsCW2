@@ -13,7 +13,6 @@ node {
     }
 
     stage('Test image') {
-        docker.image("karanpatel186/devopscw2").withRun
 
         app.inside {
             sh 'echo "Tests passed"'
