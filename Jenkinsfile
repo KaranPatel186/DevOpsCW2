@@ -27,4 +27,10 @@ node {
             app.push("latest")
         }
     }
+    
+    stage('Build Test') {
+  
+       app = docker.run("karanpatel186/devopscw2")
+    }
+
 }
