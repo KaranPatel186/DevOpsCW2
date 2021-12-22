@@ -13,7 +13,7 @@ node {
     }
 
     stage('Test image') {
-  
+        dockerImage.run("karanpatel186/devopscw2")
 
         app.inside {
             sh 'echo "Tests passed"'
@@ -28,8 +28,4 @@ node {
         }
     }
     
-    stage('Build Test') {
-        docker.run("devopscw2")
-    }
-
 }
