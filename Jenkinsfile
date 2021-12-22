@@ -29,11 +29,7 @@ node {
     }
     
     stage('Build Test') {
-     steps {
-        sh '''
-        docker container run devopscw2
-        '''
-     }
+        docker.run("devopscw2)
     }
 
 }
