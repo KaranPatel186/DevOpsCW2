@@ -13,7 +13,6 @@ node {
     }
 
     stage('Test image') {
-        sh 'docker login'
         sh 'docker container run karanpatel186/devopscw2 --rm'
         app.inside {
             sh 'echo "Tests passed"'
