@@ -2,8 +2,6 @@ node {
     def app
 
     stage('Clone repository') {
-      
-
         checkout scm
     }
 
@@ -13,7 +11,6 @@ node {
     }
 
     stage('Test image') {
-
         app.inside {
             sh 'echo "Tests passed"'
         }
@@ -27,17 +24,6 @@ node {
         }
     }
     
-    stage('Deploy to K8s') {
-        
-     steps{
-         
-     sshagent(['k8s-jenkins'])
-     script{
-      try{
-       sh 'ssh ubuntu@ip-172-31-18-146 kubectl create deployment DevOpsCW2 --image=karanpatel186/devopscw2'
-      }catch(error)
-        }
-     }
-    }
+
    }
     
