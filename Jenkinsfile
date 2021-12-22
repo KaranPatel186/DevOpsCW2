@@ -27,17 +27,12 @@ node {
         }
     }
     
-    stage('Deploy to K8s') {
+    stage('Deploy to Kubernetes') {
+        sh '''#!bin/bash
         
-     steps{
-         
-     sshagent(['k8s-jenkins'])
-     script{
-      try{
-       sh 'ssh ubuntu@ip-172-31-18-146 kubectl create deployment DevOpsCW2 --image=karanpatel186/devopscw2'
-      }catch(error)
-        }
-     }
+        cd ansible
+        kubectl set image deployments/devopscw2 devopscw2=jocatalin/devopscw2:v2 && ./multiple_users.sh
+        '''
     }
    }
     
