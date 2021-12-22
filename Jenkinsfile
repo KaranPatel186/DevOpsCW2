@@ -1,4 +1,5 @@
 node {
+    agent any
     def app
 
     stage('Clone repository') {
@@ -13,7 +14,7 @@ node {
     }
 
     stage('Test image') {
-        
+            sh 'devopscw2 --version'
         app.inside {
             sh 'echo "Tests passed"'
         }
