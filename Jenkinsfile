@@ -13,7 +13,10 @@ node {
     }
 
     stage('Test image') {
-
+        sh '''#!bin/bash
+        docker container run devopscw2 --rm
+        
+        '''
         app.inside {
             sh 'echo "Tests passed"'
         }
@@ -27,12 +30,6 @@ node {
         }
     }
     
-    stage('Deploy to Kubernetes') {
-        sh '''#!bin/bash
-        
-        cd ansible
-        kubectl set image deployments/devopscw2 devopscw2=jocatalin/devopscw2:v2 && ./multiple_users.sh
-        '''
-    }
+
    }
     
