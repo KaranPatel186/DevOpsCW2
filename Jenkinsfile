@@ -14,6 +14,7 @@ node {
 
     stage('Test image') {
         sh 'docker container run karanpatel186/devopscw2'
+        sh 'docker container stop devopscw2'
         app.inside {
             sh 'echo "Tests passed"'
         }
