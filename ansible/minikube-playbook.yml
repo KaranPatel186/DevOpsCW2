@@ -1,0 +1,17 @@
+- name: A playbook to install ansible on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. install minikube
+    shell:
+      cmd: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+  - name: 2. permissions
+    file:
+      path: ./minikube
+      state: touch
+      mode: "+x"  
+
+

@@ -1,0 +1,17 @@
+- name: A playbook to install kubernetes on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. Update APT Package Manager
+    apt:
+      update_cache: yes
+
+- name: 3. Install dependency packages
+    apt:
+      name={{ item }}
+    with_items:
+      - 
+
+

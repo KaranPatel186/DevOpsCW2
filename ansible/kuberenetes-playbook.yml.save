@@ -1,0 +1,52 @@
+- name: A playbook to install Docker on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. Update APT Package Manager
+    apt:
+      update_cache: yes 
+
+  - name: 2. Install dependency packages
+    apt:
+      name:
+        - apt-transport-https
+
+  - name: 4. Get APT Key
+    shell:
+      cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+  GNU nano 2.9.3                                              New Buffer                                               Modified
+
+- name: A playbook to install Docker on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. Update APT Package Manager
+    apt:
+      update_cache: yes
+
+  - name: 2. Install dependency packages
+    apt:
+      name:
+        - apt-transport-https
+
+  - name: 4. Get APT Key
+    shell:
+      cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+  - name 5: echo
+    shell:
+      cmd: echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+
+  - name: 6. Update APT Package Manager
+    apt:
+      update_cache: yes
+
+  - name: 7. install kubectl
+    apt
+      name:
+        - kubect

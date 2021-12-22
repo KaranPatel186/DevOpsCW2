@@ -1,0 +1,13 @@
+- name: A playbook to deploy an image to kubernetes on a VM
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. deploy image
+    shell:
+      cmd: kubectl create deployment devopscw2 --image=karanpatel186/devopscw2
+
+  - name: 2. scale deployments
+    shell:
+      cmd: kubectl scale deployments/devopscw2 --replicas=6
